@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bank App</title>
+  <script src="frontend_scripts.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(120deg, #a6c0fe, #f68084);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .sparkle:hover {
+      animation: sparkle 1s ease-in-out infinite;
+    }
+    @keyframes sparkle {
+      0% { filter: brightness(1); }
+      50% { filter: brightness(1.4); }
+      100% { filter: brightness(1); }
+    }
+  </style>
+</head>
+<body class="p-8 text-white">
+  <h1 class="text-4xl font-bold mb-4 sparkle">✨ Bank Management System ✨</h1>
+  
+  <button onclick="loadCustomers()" class="bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded">Afișează Clienți</button>
+  <button onclick="loadAccounts()" class="bg-green-500 hover:bg-green-700 px-4 py-2 rounded">Afișează Conturi</button>
+  <button onclick="loadEmployees()" class="bg-purple-500 hover:bg-purple-700 px-4 py-2 rounded">Afișează Angajați</button>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mt-6">
+  
+  <button onclick="addCustomer()" class="bg-yellow-500 hover:bg-yellow-700 px-4 py-2 rounded">➕ Adaugă Client</button>
+  
+  <button onclick="updateBalance()" class="bg-orange-500 hover:bg-orange-700 px-4 py-2 rounded">💰 Actualizează Sold</button>
+  
+  <button onclick="deleteTransaction()" class="bg-red-500 hover:bg-red-700 px-4 py-2 rounded">🗑️ Șterge Tranzacție</button>
+  
+  
+  <button onclick="showCustomerNames()" class="bg-indigo-500 hover:bg-indigo-700 px-4 py-2 rounded">👥 Nume Clienți</button>
+  <button onclick="accountsOver1000()" class="bg-pink-500 hover:bg-pink-700 px-4 py-2 rounded">💵 Sold > 1000</button>
+  <button onclick="sortedCustomers()" class="bg-teal-500 hover:bg-teal-700 px-4 py-2 rounded">🔤 Clienți Ordonați</button>
+  <button onclick="accountsBetween()" class="bg-cyan-500 hover:bg-cyan-700 px-4 py-2 rounded">📊 Conturi 1000-3000</button>
+  <button onclick="employeesGrouped()" class="bg-lime-500 hover:bg-lime-700 px-4 py-2 rounded">👷 Grupare Poziții</button>
+
+  <button onclick="customersJoinAccounts()" class="bg-rose-500 hover:bg-rose-700 px-4 py-2 rounded">🔗 Clienți + Conturi</button>
+  <button onclick="employeesJoinBranches()" class="bg-fuchsia-500 hover:bg-fuchsia-700 px-4 py-2 rounded">🏢 Angajați + Sucursale</button>
+
+  <button onclick="customersWithHighBalance()" class="bg-slate-500 hover:bg-slate-700 px-4 py-2 rounded">🔍 Subinterogare</button>
+  <button onclick="uppercaseNames()" class="bg-amber-500 hover:bg-amber-700 px-4 py-2 rounded">🔠 Nume Mari</button>
+  <button onclick="totalBalance()" class="bg-emerald-500 hover:bg-emerald-700 px-4 py-2 rounded">🧮 Total Sold</button>
+</div>
+
+
+  <div id="output" class="mt-4 bg-white text-black p-4 rounded shadow-md max-h-[400px] overflow-y-auto"></div>
+  
+  
+  <!-- Formulare !!! -->
+<div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+  <div class="bg-white p-6 rounded shadow-lg text-black w-96">
+    <h2 id="modalTitle" class="text-xl font-bold mb-4">Titlu</h2>
+    <div id="modalContent" class="space-y-2"></div>
+    <div class="flex justify-end space-x-2 mt-4">
+      <button onclick="closeModal()" class="px-4 py-1 bg-gray-400 hover:bg-gray-600 text-white rounded">Anulează</button>
+      <button id="modalSubmitBtn" class="px-4 py-1 bg-blue-600 hover:bg-blue-800 text-white rounded">Trimite</button>
+    </div>
+  </div>
+</div>
+
+  
+  
+  
+</body>
+</html>
